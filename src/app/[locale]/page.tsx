@@ -4,7 +4,6 @@ import AboutUs from "@/sections/AboutUs";
 import Stats from "@/sections/Stats";
 import Projects from "@/sections/Projects";
 import Products from "@/sections/Products";
-import Subcribe from "@/sections/Subcribe";
 import "./home.scss";
 import { getProjectsGalery } from "@/services/fetchData";
 import HeroVideo from "@/sections/HeroVideo/HeroVideo";
@@ -23,7 +22,7 @@ export default async function Home() {
       <Servicios />
       <Stats />
       <AboutUs />
-      <Designs />
+      {/* <Designs /> */}
       <Projects projectsData={projectsData} />
       {/* <Subcribe/> */}
       <Products />

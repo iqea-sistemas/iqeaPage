@@ -7,22 +7,17 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import logoIqea from "@/assets/iqea_logo.png";
 import IconMenu from "@/components/Icons/IconMenu";
-import DropDown, { DropDownItem } from "@/components/DropDown";
-// import { API_URL_STRAPI } from "@/config";
-import { fetchProductContent, getContactForm } from "@/services/fetchData";
-import { FORM_ROUTER } from "@/services/routers";
-
 import NavProductos from "./Submenus/NavProductos";
 import NavSistemas from "./Submenus/NavSistemas";
-import NavProcesos from "./Submenus/NavProcesos";
-import NavServicios from "./Submenus/NavServicios";
 import NavForms from "./Submenus/NavForms";
 import { DarkBtn } from "@/components/DarkModeBtn/DarkModeBtn";
 import LocaleSwitch from "@/components/LocaleSwitch/LocaleSwitch";
+import { useTranslations } from "next-intl";
 
-
-export default function Navbar({Products, Systems}:any) {
+export default function Navbar({ Products, Systems }: any) {
   const [openMenu, setOpenMenu] = useState(false);
+
+  const t = useTranslations("NavLinks");
 
   const path = usePathname();
   useEffect(() => {
@@ -39,47 +34,38 @@ export default function Navbar({Products, Systems}:any) {
   };
 
   return (
-
-      <nav className="navbar">
-        <Link href="/">
-          <div className="iqeaLogo">
-            <Image src={logoIqea} alt="logo" className="logoIqea" />
-          </div>
-        </Link>
-        <div className="movilMenu">
-          <button onClick={handlerMenu} className="buttonMenu">
-            <IconMenu className="hamburger" />
-          </button>
+    <nav className="navbar">
+      <Link href="/">
+        <div className="iqeaLogo">
+          <Image src={logoIqea} alt="logo" className="logoIqea" />
         </div>
+      </Link>
+      <div className="movilMenu">
+        <button onClick={handlerMenu} className="buttonMenu">
+          <IconMenu className="hamburger" />
+        </button>
+      </div>
 
-        <ul className={`navLinks ${openMenu ? "openMenu" : ""}`}>
-          <NavProductos navData={Products}/>
-          <NavSistemas navData={Systems}/>
-          {/* <NavProcesos /> */}
-          {/* <NavServicios /> */}
+      <ul className={`navLinks ${openMenu ? "openMenu" : ""}`}>
+        <NavProductos navData={Products} />
+        <NavSistemas navData={Systems} />
+        {/* <NavProcesos /> */}
+        {/* <NavServicios /> */}
 
-          {/* <li>
+        {/* <li>
             <Link href="/proyectos" className={isActiveLink("/proyectos")}>
               Proyectos
             </Link>
           </li> */}
-          <li className="nav-item">
-            <Link href="/contacto" className={isActiveLink("/contacto")}>
-              Contacto
-            </Link>
-          </li>
-          <NavForms/>
-          <li>
-            <DarkBtn/>
-          </li>
-          <li>
-            <LocaleSwitch/>
-          </li>
-
-        </ul>
-      </nav>
-
+        <li className="nav-item">
+          <Link href="/contacto" className={isActiveLink("/contacto")}>
+            {t("Contact")}
+          </Link>
+        </li>
+          <NavForms />
+          <DarkBtn />
+          <LocaleSwitch />
+      </ul>
+    </nav>
   );
 }
-
-

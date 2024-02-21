@@ -5,6 +5,7 @@ import { getCatProductos } from "@/services/fetchData";
 import SlideProducts from "@/components/SlideProducts/SlideProducts";
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
+import { cookies } from "next/headers";
 
 const random_array = (arr: any) => {
   const copiaArray = arr.slice(); // Crear una copia del array para no modificar el original
@@ -18,6 +19,8 @@ const random_array = (arr: any) => {
 };
 
 export default async function Products() {
+  const cookieStore = cookies()
+  const locale = cookieStore.get('NEXT_LOCALE')?.value
   const t = useTranslations('Home');
 
   const data = await getCatProductos();
@@ -54,7 +57,7 @@ export default async function Products() {
         </div>
         <ButtonStyle>
           <Link
-            href={"/productos"}
+            href={locale+"/productos"}
             style={{ margin: "10px 0", width: "200px" }}
           >
             {t('ProductsBtn')}

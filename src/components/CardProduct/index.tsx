@@ -8,7 +8,22 @@ import ImageNotFound from '@/assets/Image-not-found.png'
 import Link from "next/link";
 
 export default function ProductCard({productData}:any) {
+ const getCookieValue = (name:string) => {
+    if (typeof document !== 'undefined') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Si la cookie comienza con el nombre buscado, devuelve su valor
+        if (cookie.startsWith(`${name}=`)) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+    }
+    return ''; // Si no se encuentra la cookie, devuelve una cadena vacía
+  };
+  const locale = getCookieValue('NEXT_LOCALE')
 
+  console.log(locale)
   return (
     <article className="cardProduct">
         <div className="cardImage">
@@ -21,7 +36,7 @@ export default function ProductCard({productData}:any) {
       </div>
       <div className="cardFooter">
         <ButtonStyle>
-          <Link className="btnGeneral" href={`/productos/${productData.category_slug}/${productData.slug}`}>
+          <Link className="btnGeneral" href={locale+`/productos/${productData.category_slug}/${productData.slug}`}>
             Ver mas
             <IconArrowRight />
           </Link>

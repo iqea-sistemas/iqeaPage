@@ -1,7 +1,5 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
-import { fetchProductContent } from "@/services/fetchData";
+import React from "react";
 import {
   DropdownGroup,
   DropdownItem,
@@ -10,8 +8,10 @@ import {
 } from "@/components/DropDownMultiLevel/DropDown";
 import { usePathname } from "next/navigation";
 import { FORM_ROUTER } from "@/services/routers";
+import {useTranslations} from 'next-intl';
 
-export default function NavForms() {
+export default function NavForms( ) {
+  const t = useTranslations('NavLinks');
 
 
   const path = usePathname();
@@ -20,7 +20,7 @@ export default function NavForms() {
     return `navLink ${value === path ? "active" : ""}`;
   };
   return (
-    <NavItem title="Cotiza!" href={"/cotiza"} className={isActiveLink("/cotiza")}>
+    <NavItem title={t('Cotiza')} href={"/cotiza"} className={isActiveLink("/cotiza")}>
       <DropdownMenu>
         <DropdownGroup nameGroup="main">
           {FORM_ROUTER &&

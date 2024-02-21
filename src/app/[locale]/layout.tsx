@@ -15,14 +15,14 @@ export default function RootLayout({
   const messages = useMessages();
   return (
     <html lang={locale}>
-      <body>
-        <NextIntlClientProvider messages={messages}>
+      <NextIntlClientProvider messages={messages}>
+        <body>
           <Header />
           {children}
           <WhattsButton />
           <Footer />
-        </NextIntlClientProvider>
-      </body>
+        </body>
+      </NextIntlClientProvider>
     </html>
   );
 }

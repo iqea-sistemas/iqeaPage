@@ -16,7 +16,7 @@ import IconMail from "@/components/Icons/IconMail";
 import { usePathname } from "next/navigation";
 import IconYoutube from "@/components/Icons/IconYouTube";
 import EmailSubcribe from "@/components/EmailSubcribeFooter";
-import {useTranslations} from 'next-intl';
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const t = useTranslations();
@@ -36,11 +36,12 @@ export default function Footer() {
         <div className="redesSociales">
           <ul>
             <li>
-              <a href="https://www.youtube.com/channel/UCsLINXnJkeZOQFBwlE9Cp9g"
+              <a
+                href="https://www.youtube.com/channel/UCsLINXnJkeZOQFBwlE9Cp9g"
                 target="_blank"
-                className="socialLinks">
-                <IconYoutube className='youtube' />
-
+                className="socialLinks"
+              >
+                <IconYoutube className="youtube" />
               </a>
             </li>
             <li>
@@ -49,7 +50,7 @@ export default function Footer() {
                 target="_blank"
                 className="socialLinks"
               >
-                <IconLinkedIn className={'facebook'}/>
+                <IconLinkedIn className={"facebook"} />
               </a>
             </li>
             <li>
@@ -58,12 +59,16 @@ export default function Footer() {
                 target="_blank"
                 className="socialLinks "
               >
-                <IconFacebook className={'facebook'}/>
+                <IconFacebook className={"facebook"} />
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/iqeamx/" target="_blank" className="socialLinks">
-                <IconInstagram className={'instagram'}/>
+              <a
+                href="https://www.instagram.com/iqeamx/"
+                target="_blank"
+                className="socialLinks"
+              >
+                <IconInstagram className={"instagram"} />
               </a>
             </li>
           </ul>
@@ -72,7 +77,7 @@ export default function Footer() {
       <hr className="footerSeparator" />
       <div className="footerBody">
         <div className="contact">
-          <h4>{t('Footer.ContactoTitle')}</h4>
+          <h4>{t("Footer.ContactoTitle")}</h4>
           <div className="direccion ">
             <IconPin className="footerIcon" />
             <Link
@@ -100,60 +105,47 @@ export default function Footer() {
           </div>
           <div className="email ">
             <IconMail className="footerIcon" />
-            <Link href={'mailto:info@iqea.mx'}>
-
-            <p>info@iqea.mx</p>
+            <Link href={"mailto:info@iqea.mx"}>
+              <p>info@iqea.mx</p>
             </Link>
           </div>
         </div>
         <div className="navbar">
           <Link href={"/"} className={isActiveLink("/")}>
-            {t('NavLinks.Home')}
+            {t("NavLinks.Home")}
           </Link>
           <Link
             href={"/quienes-somos"}
             className={isActiveLink("/quienes-somos")}
           >
-                        {t('NavLinks.AboutUs')}
-
+            {t("NavLinks.AboutUs")}
           </Link>
           <Link href={"/servicios"} className={isActiveLink("/servicios")}>
-          {t('NavLinks.Services')}
-
+            {t("NavLinks.Services")}
           </Link>
           <Link href={"/productos"} className={isActiveLink("/productos")}>
-          {t('NavLinks.Products')}
-
+            {t("NavLinks.Products")}
           </Link>
-          {/* <Link href={"/procesos"} className={isActiveLink("/procesos")}>
-            Procesos
-          </Link> */}
-
           <Link href={"/proyectos"} className={isActiveLink("/proyectos")}>
-          {t('NavLinks.Projects')}
-
+            {t("NavLinks.Projects")}
           </Link>
           <Link href={"/contacto"} className={isActiveLink("/contacto")}>
-          {t('NavLinks.Contact')}
-
+            {t("NavLinks.Contact")}
           </Link>
           <Link
             href={"/sistemas-de-tratamiento"}
             className={isActiveLink("/sistemas-de-tratamiento")}
           >
-                      {t('NavLinks.Systems')}
-
+            {t("NavLinks.Systems")}
           </Link>
         </div>
         <div className="subEmail">
-          <EmailSubcribe/>
+          <EmailSubcribe />
         </div>
-
-
       </div>
       <div className="footerFooter">
         <div className="legend">
-          <p>© {t('Footer.ContactRightsReserved')} </p>
+          <p>© {t("Footer.ContactRightsReserved")} </p>
         </div>
         {/* <div className="develop">
           <p>sitio desarrollado por </p>

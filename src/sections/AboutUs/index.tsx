@@ -5,9 +5,13 @@ import imgSample from "@/assets/samples/Sample4.jpeg";
 import ButtonStyle from "@/components/ButtonStyle";
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
+import { cookies } from 'next/headers'
 
 export default function AboutUs() {
   const t = useTranslations('Home');
+  const cookieStore = cookies()
+  const localeTest = cookieStore.get('NEXT_LOCALE')?.value
+
 
   return (
     <section className="aboutUsIqea">
@@ -15,7 +19,7 @@ export default function AboutUs() {
         <h2>{t('AboutUsTitle')}</h2>
         <p>{t('AboutUsContent')}</p>
         <ButtonStyle >
-          <Link href={'cotiza'} >{t('AboutUsBtn')}</Link>
+          <Link href={localeTest+'/cotiza'} >{t('AboutUsBtn')}</Link>
 
         </ButtonStyle>
       </div>

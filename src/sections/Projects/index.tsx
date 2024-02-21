@@ -1,19 +1,36 @@
-"use client";
-import React, { useState } from "react";
+
+import React from "react";
 import "./Projects.scss";
-import CardProject from "@/components/CardProject";
-import { Slide, Slideshow } from "@/components/Slideshow";
+
 import ButtonStyle from "@/components/ButtonStyle";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import ImageNotFound from "@/assets/Image-not-found.png";
 import {useTranslations} from 'next-intl';
+import { cookies } from "next/headers";
+import ProjectSlider from "./ProjectSlider";
 
 
 export default function Projects({ projectsData }: any) {
-  // console.log(projectsData)
+  const cookieStore = cookies()
+  const locale = cookieStore.get('NEXT_LOCALE')?.value
   const t = useTranslations('Home');
+
+  // const getCookieValue = (name:string) => {
+  //   if (typeof document !== 'undefined') {
+  //     const cookies = document.cookie.split(';');
+  //     for (let i = 0; i < cookies.length; i++) {
+  //       const cookie = cookies[i].trim();
+  //       // Si la cookie comienza con el nombre buscado, devuelve su valor
+  //       if (cookie.startsWith(`${name}=`)) {
+  //         return cookie.substring(name.length + 1);
+  //       }
+  //     }
+  //   }
+  //   return ''; // Si no se encuentra la cookie, devuelve una cadena vacía
+  // };
+  // const locale = getCookieValue('NEXT_LOCALE')
+
+  // console.log(locale)
 
   return (
     <section className="projectsIqea">
@@ -23,65 +40,14 @@ export default function Projects({ projectsData }: any) {
           <p>{t('ProjectsContent')}</p>
         </div>
 
-        <div className="bodyProjects ">
-          <Swiper
-            breakpoints={{
-              // when window width is >= 640px
-              320: {
-                width: 320,
-                slidesPerView: 1.1,
-              },
-              // when window width is >= 640px
-              640: {
-                width: 640,
-                slidesPerView: 1.6,
-              },
-              // when window width is >= 768px
-              768: {
-                width: 768,
-                slidesPerView: 2,
-              },
-              // when window width is >= 1240px
-              1240: {
-                width: 1240,
-                slidesPerView: 3.3,
-              },
-            }}
-            // modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={10}
-            // onSlideChange={() => console.log("slide change")}
-            // onSwiper={(swiper) => console.log(swiper)}
-          >
-            {projectsData?.map((image: any) => {
-              const [error, setError] = useState(false);
-              const handleImageError = (e: any) => {
-                console.error(`Error loading image: ${e}`);
-                setError(true);
-              };
+        <ProjectSlider data={projectsData} />
 
-              const setUrl = (src: string, error: boolean) => {
-                if (!error) {
-                  return src;
-                }
-                if (error) {
-                  return ImageNotFound;
-                }
-              };
-
-              return (
-                <SwiperSlide key={image.id}>
-                  <CardProject leProject={image} />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </div>
         <ButtonStyle>
           <Link
-            href={"/proyectos"}
+            href={locale+"/proyectos"}
             style={{ maxWidth: "200px", margin: "30px 0" }}
           >
-           {t('ProjectsBtn')}
+          {t('ProjectsBtn')}
           </Link>
         </ButtonStyle>
       </div>
