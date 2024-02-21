@@ -38,6 +38,15 @@
     "ProjectsBtn": "See more...",
     "ProductsTitle": "Our Products",
     "ProductsContent": "We are proud distributors of different brands that supply supplies for your water treatment system, we have filters, chemicals, solvents, pumping equipment and more...",
-    "ProductsBtn": "See more..."
+    "ProductsBtn": "See more...",
+    "StatsMundoCopy1":"Clients from the Industrial, Pharmacological, Food and Construction sectors",
+    "StatsMundoCopy2":"Cubic meters of water treated per year",
+    "StatsMundoCopy3":"Cubic meters of water treated per year",
+    "StatsAguaPotableCopy1":"Built drinking water treatment systems",
+    "StatsAguaPotableCopy2":"Cubic meters of water treated per day since 2004",
+    "StatsAguaPotableCopy3":"Millions of cubic meters of purified water",
+    "StatsAguaResidualCopy1":"Wastewater treatment systems",
+    "StatsAguaResidualCopy2":"Cubic meters of water treated per day since 2004",
+    "StatsAguaResidualCopy3":"Millions of cubic meters of treated water"
   }
 }

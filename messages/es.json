@@ -38,6 +38,15 @@
     "ProjectsBtn": "Ver mas...",
     "ProductsTitle": "Nuestros Productos",
     "ProductsContent": "Somos orgullosos distribuidores de distintas de marcas proveedoras de insumos para tu sistema de tratamiento de agua, contamos con filtros, quimicos, solventes, equipo de bombeo y mas...",
-    "ProductsBtn": "Ver mas..."
+    "ProductsBtn": "Ver mas...",
+    "StatsMundoCopy1":"Clientes de sector Industrial, Farmacologico, Alimenticio y Construccion",
+    "StatsMundoCopy2":"De metros cubicos de agua por año tratada",
+    "StatsMundoCopy3":"Metros cubicos de agua por año tratada",
+    "StatsAguaPotableCopy1":"Sistemas de tratamiento de agua potable construidos",
+    "StatsAguaPotableCopy2":"Metros cubicos de agua tratada por dia desde 2004",
+    "StatsAguaPotableCopy3":"Millones de metros cubicos de agua potabilizada",
+    "StatsAguaResidualCopy1":"Sistemas de tratamiento de agua residual",
+    "StatsAguaResidualCopy2":"Metros cubicos de agua tratada por dia desde 2004",
+    "StatsAguaResidualCopy3":"Millones de metros cubicos de agua tratada"
   }
 }

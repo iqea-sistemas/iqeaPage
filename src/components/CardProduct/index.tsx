@@ -6,21 +6,10 @@ import IconArrowRight from "../Icons/IconArrowRight";
 import ButtonStyle from "../ButtonStyle";
 import ImageNotFound from '@/assets/Image-not-found.png'
 import Link from "next/link";
+import { getCookieValue } from "@/services/getCookie";
 
 export default function ProductCard({productData}:any) {
- const getCookieValue = (name:string) => {
-    if (typeof document !== 'undefined') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        // Si la cookie comienza con el nombre buscado, devuelve su valor
-        if (cookie.startsWith(`${name}=`)) {
-          return cookie.substring(name.length + 1);
-        }
-      }
-    }
-    return ''; // Si no se encuentra la cookie, devuelve una cadena vacía
-  };
+
   const locale = getCookieValue('NEXT_LOCALE')
 
   console.log(locale)
