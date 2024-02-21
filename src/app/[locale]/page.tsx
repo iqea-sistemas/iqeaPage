@@ -12,17 +12,18 @@ import Designs from "@/sections/Designs/Designs";
 import HeroDiagonal from "@/sections/HeroDiagonal";
 
 export default async function Home() {
+
   const projectsData = await getProjectsGalery();
 
   return (
     <main className="main">
-      {/* <HeroVideo /> */}
+      {/* <HeroDiagonal/> */}
+      <HeroVideo />
       {/* <Hero/> */}
-      <HeroDiagonal/>
       <Servicios />
       <Stats />
       <AboutUs />
-      {/* <Designs /> */}
+      <Designs />
       <Projects projectsData={projectsData} />
       {/* <Subcribe/> */}
       <Products />
