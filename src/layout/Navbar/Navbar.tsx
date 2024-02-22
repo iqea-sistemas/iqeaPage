@@ -48,7 +48,7 @@ export default function Navbar({ Products, Systems }: any) {
 
       <ul className={`navLinks ${openMenu ? "openMenu" : ""}`}>
         <NavProductos navData={Products} />
-        <NavSistemas navData={Systems} />
+        {/* <NavSistemas navData={Systems} /> */}
         {/* <NavProcesos /> */}
         {/* <NavServicios /> */}
 
