@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./FormContact.scss";
 import IconArrowRight from "../Icons/IconArrowRight";
 import axios from "axios";
+import { useTranslations } from "next-intl";
 
 type FormData = {
   nombre: string;
@@ -12,11 +13,12 @@ type FormData = {
 };
 
 export default function FormContact() {
-  const [success, setSuccess]=useState(false)
+  const [success, setSuccess] = useState(false);
+  const t = useTranslations("Contact");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(event.currentTarget.elements)
+    console.log(event.currentTarget.elements);
     const data = {
       nombre: (event.currentTarget.elements[0] as HTMLFormElement).value,
       email: (event.currentTarget.elements[1] as HTMLFormElement).value,
@@ -24,13 +26,10 @@ export default function FormContact() {
       mensaje: (event.currentTarget.elements[3] as HTMLFormElement).value,
     };
 
-
     postContactForm(data);
   };
 
   async function postContactForm(data: FormData) {
-
-
     let config = {
       method: "post",
       maxBodyLength: Infinity,
@@ -38,63 +37,64 @@ export default function FormContact() {
       headers: {
         "Content-Type": "application/json",
       },
-      data:{data},
+      data: { data },
     };
 
-    axios.request(config)
-    .then((response) => {
-      setSuccess(true)
-
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
+    axios
+      .request(config)
+      .then((response) => {
+        setSuccess(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
     <div className="contactFormWrapper">
-      {!success?<form className="contactFormForm" onSubmit={handleSubmit}>
-        <div className="inputGroup">
-          <div className="inputRow">
-            <label htmlFor="">Nombre *</label>
-            <input type="text" name="nombre" id="nombre" required/>
-          </div>
+      {!success ? (
+        <form className="contactFormForm" onSubmit={handleSubmit}>
+          <div className="inputGroup">
+            <div className="inputRow">
+              <label htmlFor="">{t("FormInputName")}</label>
+              <input type="text" name="nombre" id="nombre" required />
+            </div>
 
-          <div className="inputRow">
-            <label htmlFor="">Correo Electronico *</label>
-            <input type="email" name="email" id="email" required/>
-          </div>
+            <div className="inputRow">
+              <label htmlFor="">{t("FormInputEmail")}</label>
+              <input type="email" name="email" id="email" required />
+            </div>
 
-          <div className="inputRow">
-            <label htmlFor="">Asunto *</label>
-            <input type="text" name="asunto" id="asunto" required/>
-          </div>
+            <div className="inputRow">
+              <label htmlFor="">{t("FormInputTopic")}</label>
+              <input type="text" name="asunto" id="asunto" required />
+            </div>
 
-          <div className="inputRow ">
-            <label htmlFor="">Mensaje *</label>
-            <textarea name="mensaje" id="mensaje" required></textarea>
+            <div className="inputRow ">
+              <label htmlFor="">{t("FormInputMessage")}</label>
+              <textarea name="mensaje" id="mensaje" required></textarea>
+            </div>
+            <div className="btnSubmit">
+              <button type="submit">
+                {t("FormInputBtn")}
+                <IconArrowRight />
+              </button>
+            </div>
           </div>
-          <div className="btnSubmit">
-            <button type="submit">
-              Enviar <IconArrowRight />
-            </button>
-          </div>
-        </div>
-      </form> :
-      <SendMessage/>
-      }
+        </form>
+      ) : (
+        <SendMessage />
+      )}
     </div>
   );
 }
 
+const SendMessage = () => {
+  const t = useTranslations("Home");
 
-const SendMessage =()=>{
-
-
-  return(
+  return (
     <div className="sendMessage">
-      <h2>Gracias, nos pondremos en contacto contigo pronto..!</h2>
+      <h2> {t("FormInputGrettings")}</h2>
     </div>
-  )
-}
+  );
+};

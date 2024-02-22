@@ -25,7 +25,7 @@ export default function ProductCard({productData}:any) {
       </div>
       <div className="cardFooter">
         <ButtonStyle>
-          <Link className="btnGeneral" href={locale+`/productos/${productData.category_slug}/${productData.slug}`}>
+          <Link className="btnGeneral" href={`/productos/${productData.category_slug}/${productData.slug}`}>
             Ver mas
             <IconArrowRight />
           </Link>
