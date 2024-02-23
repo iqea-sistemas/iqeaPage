@@ -1,5 +1,7 @@
 import createMiddleware from 'next-intl/middleware';
 import {Pathnames} from 'next-intl/navigation';
+import {createSharedPathnamesNavigation} from 'next-intl/navigation';
+
 
 export const locales = ['en', 'es'] as const;
 
@@ -12,10 +14,12 @@ export const pathnames = {
 } satisfies Pathnames<typeof locales>;
 
 // Use the default: `always`
-export const localePrefix = undefined;
+export const localePrefix = 'always';
 
 export type AppPathnames = keyof typeof pathnames;
 
+export const {Link, redirect, usePathname, useRouter} =
+  createSharedPathnamesNavigation({locales, localePrefix});
 
 
 export default createMiddleware({
