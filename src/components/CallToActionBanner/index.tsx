@@ -12,10 +12,10 @@ export default function CallToActionBanner() {
   const t = useTranslations('CallToAction');
   return (
     <div className="callToAction">
-      <Link href={`${locale}/contacto`}>
+      <Link href={`/contacto`}>
           {t('Contactanos')}
         </Link>
-        <Link href={locale+'/cotiza/'}>
+        <Link href={'/cotiza/'}>
         {t('Cotiza')}
         </Link>
 

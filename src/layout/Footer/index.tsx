@@ -114,12 +114,12 @@ export default function Footer() {
           <Link href={"/"} className={isActiveLink("/")}>
             {t("NavLinks.Home")}
           </Link>
-          <Link
+          {/* <Link
             href={"/quienes-somos"}
             className={isActiveLink("/quienes-somos")}
           >
             {t("NavLinks.AboutUs")}
-          </Link>
+          </Link> */}
           <Link href={"/servicios"} className={isActiveLink("/servicios")}>
             {t("NavLinks.Services")}
           </Link>

@@ -11,7 +11,6 @@ import CheckAuth from '@/components/CheckAuth/CheckAuth';
 export  default async function Portafolio() {
 
   const proyectos = await getProyectos();
-
   const projectData = proyectos.map((project: any) => {
     const { titulo, slug, cover } = project.attributes;
     const coverImage = cover.data?.attributes.url;
