@@ -33,19 +33,20 @@
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
-
-        border: none;
+        border: 1px solid var(--PrimaryTextColor);
+        border-radius: 4px;
         padding: 0 10px;
-        background-color: rgb(32, 32, 32);
-        color: white;
+        background-color: var(--PrimaryBgColor);
+        color: var(--PrimaryTextColor);
         font-size: 16px;
       }
       textarea {
         height: 100px;
-        border: none;
         padding: 10px;
-        background-color: rgb(32, 32, 32);
-        color: white;
+        border: 1px solid var(--PrimaryTextColor);
+        border-radius: 4px;
+        background-color: var(--PrimaryBgColor);
+        color: var(--PrimaryTextColor);
         font-size: 16px;
 
       }

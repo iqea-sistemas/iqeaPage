@@ -2,10 +2,22 @@ import React from "react";
 import "./Contacto.scss";
 import bgImage from "@/assets/Contact-min.png";
 import FormContact from "@/components/FormContact";
-export default function ContactoPage() {
+import initTranslations from "../../i18n";
+
+
+
+export default async function ContactoPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const bgContactForm = {
     backgroundImage: `url(${bgImage.src})`,
   };
+
+
+  const { t } = await initTranslations(locale, ["contact"]);
+
   return (
     <main className="mainContacto">
       <section className="contactLocation">
@@ -13,25 +25,19 @@ export default function ContactoPage() {
 
           <div className="HeaderContactPage">
             <div className="ContactTitle">
-              <h1>Contacto IQEA</h1>
+              <h1>{t('ContactTitle')}</h1>
               <hr />
-              <p>
-                Nuestra mision es ofrecerte Ingeniería de Proyecto, Construcción
-                de Calidad así como los suministros y mantenimiento de tus
-                sistemas de tratamiento de agua, con una{" "}
-                <strong>Solución de Respuesta Rápida</strong> de acuerdo a tus
-                necesidades y al mejor precio.
-              </p>
+              <p>{t('ContactSubTitle')}</p>
             </div>
           </div>
 
           <div className=" leftStyle">
             <div className="LocationLeft ">
               <div className="LocationAdress">
-                <h4>Oficina Principal</h4>
+                <h4>{t('LocationsTitles')}</h4>
 
                 <p>
-                  Direccion: Callejón Manuel M. Doria No. 12612 Col. Libertad
+                Direccion: Callejón Manuel M. Doria No. 12612 Col. Libertad
                   22400. Tijuana, B.C., México.
                 </p>
                 <p>Tel: +52 (664) 210-1017</p>
@@ -58,8 +64,8 @@ export default function ContactoPage() {
             <div className="LocationLeft ">
               <div className="LocationAdress">
                 <p>
-                  Direccion: Callejón Manuel M. Doria No. 12612 Col. Libertad
-                  22400. Tijuana, B.C., México.
+
+                  Vía Rápida Ote. 15330-1y2-15330-1y2, Rio Tijuana 3ra Etapa, 22226 Tijuana, Baja California.
                 </p>
                 <p>Tel: +52 (664) 210-1017</p>
                 <p>Tel: +52 (664) 609-4415</p>
@@ -85,8 +91,7 @@ export default function ContactoPage() {
             <div className="LocationLeft ">
               <div className="LocationAdress">
                 <p>
-                  Direccion: Callejón Manuel M. Doria No. 12612 Col. Libertad
-                  22400. Tijuana, B.C., México.
+                GTO Puerto Interior, Pl. de la Paz 102, 36275 Silao de la Victoria, Gto.
                 </p>
                 <p>Tel: +52 (664) 210-1017</p>
                 <p>Tel: +52 (664) 609-4415</p>
@@ -112,12 +117,7 @@ export default function ContactoPage() {
       </section>
       <section className="contactFrase">
         <div className="frase">
-          <p>
-            Si desea solicitar información sobre un producto o servicion,
-            comuniquese al teléfono+52 (664) 210-1017 o llene el siguiente
-            formulario con sus datos y a la brevedad estaremos en contacto con
-            usted.
-          </p>
+          <p>{t('ContactSeparation')}  </p>
         </div>
       </section>
       <section className="contactForm" style={bgContactForm}>
