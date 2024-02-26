@@ -4,13 +4,20 @@ import CallToActionBanner from "@/components/CallToActionBanner";
 import "./Cotiza.scss";
 import Link from "next/link";
 import ButtonStyle from "@/components/ButtonStyle";
+import initTranslations from "../../i18n";
 
-export default function page() {
+export default async function page({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const { t } = await initTranslations(locale, ["cotiza"]);
 
   return (
     <section className="cotizaPage">
       <div className="cotizaPageTitle">
-        <h1>Servicios IQEA</h1>
+        <h1>{t('CotizaTitle')}</h1>
+        <p>{t('CotizaSubTitle')}</p>
       </div>
 
 
@@ -20,7 +27,7 @@ export default function page() {
             return (
               <article key={element.id} className="formLink">
                 <h3>{element.title}</h3>
-                <Link href={`cotiza/${element.slug}`} className="link" > Cotiza Aqui </Link>
+                <Link href={`cotiza/${element.slug}`} className="link" > {t('CotizaBtn')}</Link>
               </article>
             );
           })

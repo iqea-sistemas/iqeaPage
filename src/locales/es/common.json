@@ -13,8 +13,10 @@
   "ContactSubscriptionBtn": "Subscribete",
   "ContactSubscriptionPlaceHolder": "tu_correo@email.com",
   "ContactSubscriptionMessage": "Gracias por suscribirte :D",
-  "LogIn":"Entrar",
-  "Welcome":"Bienvenidos",
-  "Password":"contraseña",
-  "ErrorPassMessage":"La contraseña no esvalida.."
+  "LogIn": "Entrar",
+  "Welcome": "Bienvenidos",
+  "Password": "contraseña",
+  "ErrorPassMessage": "La contraseña no esvalida..",
+  "CTAContactanos": "Contactanos",
+  "CTACotiza": "Cotiza tu Proyecto"
 }

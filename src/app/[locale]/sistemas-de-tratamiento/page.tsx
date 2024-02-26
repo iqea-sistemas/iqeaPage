@@ -8,8 +8,15 @@ import imgH2 from "@/assets/servicios/ImgHt2.jpg";
 import imgV1 from "@/assets/servicios/ImgVt1.jpeg";
 import imgV2 from "@/assets/servicios/ImgVt2.jpg";
 import Image from "next/image";
+import initTranslations from "@/app/i18n";
 
-export default async function page() {
+export default async function page({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const { t } = await initTranslations(locale, ["systems"]);
+
   const data = await getSistemasTratamiento();
 
   const arrSistemas = data.map((element: any) => {
@@ -29,7 +36,7 @@ export default async function page() {
   return (
     <section className="SistemasDeTratamientoPage">
       <div className="pageTitle">
-        <h1>Sistemas de tratamiento IQEA</h1>
+        <h1>{t('PageTitle')}</h1>
       </div>
       <div className="sistemasContent">
         <div className="SistemasList">

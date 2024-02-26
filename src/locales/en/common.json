@@ -13,8 +13,10 @@
   "ContactSubscriptionBtn": "Subscribe",
   "ContactSubscriptionPlaceHolder": "your_email@email.com",
   "ContactSubscriptionMessage": "Thanks for subscribing :D",
-  "LogIn":"Log In",
-  "Welcome":"Welcome",
-  "Password":"Password",
-  "ErrorPassMessage":"wrong password or valid"
+  "LogIn": "Log In",
+  "Welcome": "Welcome",
+  "Password": "Password",
+  "ErrorPassMessage": "wrong password or valid",
+  "CTAContactanos": "Contact Us",
+  "CTACotiza": "show us your project"
 }

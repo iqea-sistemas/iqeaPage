@@ -72,8 +72,8 @@
     "FormTitle6":""
   },
   "CallToAction":{
-    "Contactanos":"Contact Us",
-    "Cotiza":"show us your project"
+    "CTAContactanos":"Contact Us",
+    "CTACotiza":"show us your project"
 
   }
 }

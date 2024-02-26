@@ -4,8 +4,15 @@ import React from "react";
 import "./Proyectos.scss";
 import CallToActionBanner from "@/components/CallToActionBanner";
 import Image from "next/image";
+import initTranslations from '@/app/i18n';
 
-export default async function page() {
+export default async function page({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const { t } = await initTranslations(locale, ["projects"]);
+
   const data = await getProyectos();
   const projectData = data.map((project: any) => {
     const { titulo, slug, cover, isPublic } = project.attributes;
@@ -31,7 +38,7 @@ export default async function page() {
   return (
     <section className="ProyectosPage">
       <div className="pageTitle">
-        <h1>Proyectos IQEA</h1>
+        <h1>{t('PorjectsTitle')}</h1>
       </div>
 
       <div className="projectGroup">

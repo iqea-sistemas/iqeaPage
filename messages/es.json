@@ -72,8 +72,8 @@
     "FormTitle6":"Biofiltracion"
   },
   "CallToAction":{
-    "Contactanos":"Contactanos",
-    "Cotiza":"Cotiza tu Proyecto"
+    "CTAContactanos":"Contactanos",
+    "CTACotiza":"Cotiza tu Proyecto"
 
   }
 }

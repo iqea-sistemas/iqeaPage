@@ -1,13 +1,17 @@
 import { getCatProductos } from "@/services/fetchData";
-import Link from "next/link";
 import React from "react";
 import "./ProductosPage.scss";
-import ProductCardList from "@/components/CardProductList";
 import CallToActionBanner from "@/components/CallToActionBanner";
 import ProductsShowCase from "@/sections/ProductsShowCase/ProductsShowCase";
+import initTranslations from "../../i18n";
 
-export default async function page() {
+export default async function page({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const data = await getCatProductos();
+  const { t } = await initTranslations(locale, ["products"]);
 
   const productCatArray = data.map((element:any)=>{
     const productArr = element.attributes.productos.data
@@ -34,25 +38,12 @@ export default async function page() {
   return (
     <section className="ProductsPage">
       <div className="pageTitle">
-        <h1>Productos IQEA</h1>
+        <h1>{t('PageTitle')}</h1>
       </div>
-
       <div className="productCategoryGroup">
-
-      {/* {productCatArray.sort((a:any,b:any)=>a.title.localeCompare(b.title)).map((productCategory: any) => {
-        const { id, title, slug } = productCategory;
-        return (
-          <ProductCardList
-            title={title}
-            href={`/productos/${slug}`}
-            key={id}
-          />
-        );
-      })} */}
       </div>
 
       <ProductsShowCase productCatArray={productCatArray}/>
-
       <CallToActionBanner/>
     </section>
   );
