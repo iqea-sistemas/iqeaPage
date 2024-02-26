@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Footer from "@/layout/Footer";
 import "./globals.scss";
 import "@/sections/Hero/Hero.scss";
-import Navbar from "@/layout/Navbar/Navbar";
 import WhattsButton from "@/components/WhattsButton/WhattsButton";
 import Header from "@/layout/Navbar/Header";
 import initTranslations from "../i18n";

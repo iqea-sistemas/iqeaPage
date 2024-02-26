@@ -4,7 +4,34 @@ import bgImage from "@/assets/Contact-min.png";
 import FormContact from "@/components/FormContact";
 import initTranslations from "../../i18n";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string; locale: string };
+}) {
 
+
+  return {
+    title: 'Contacto IQEA',
+    description: "Contactanos para tener mas informacion de nuestros sistemas de tratamiento de agua, osmosis inversa, tratamientos fisico quimicos, electrocuagualacion, tratamientos biologicos, sedimentador o Ultra filtracion",
+    openGraph: {
+      title: 'Contacto IQEA',
+      description:"Contactanos para tener mas informacion de nuestros sistemas de tratamiento de agua, osmosis inversa, tratamientos fisico quimicos, electrocuagualacion, tratamientos biologicos, sedimentador o Ultra filtracion" ,
+      url: "iqea.mx",
+      siteName: "IQEA Ingenieria Quimica Electromicanica Ambiental",
+      images: [
+        {
+
+          url:"/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdqhvp0atv%2Fimage%2Fupload%2Fv1700861892%2F2_41ea60e311.jpg&w=2048&q=75",
+          width: 1280,
+          height: 800,
+        },
+      ],
+      locale: params.locale,
+      type: "website",
+    },
+  };
+}
 
 export default async function ContactoPage({
   params: { locale },
