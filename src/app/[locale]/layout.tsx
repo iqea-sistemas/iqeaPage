@@ -7,7 +7,7 @@ import WhattsButton from "@/components/WhattsButton/WhattsButton";
 import Header from "@/layout/Navbar/Header";
 import initTranslations from "../i18n";
 import TranslationsProvider from "../TranslationsProvider";
-
+import { GoogleAnalytics } from '@next/third-parties/google';
 // import { Inter } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -62,6 +62,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+
   const { t, resources } = await initTranslations(locale, [
     "home",
     "common",
@@ -82,6 +83,7 @@ export default async function RootLayout({
           <Footer />
         </TranslationsProvider>
       </body>
+      <GoogleAnalytics gaId="G-SLFXCNT39L" />
     </html>
   );
 }

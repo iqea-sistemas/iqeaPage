@@ -10,7 +10,6 @@ export const DarkBtn=()=>{
   const handleChange=()=>{
     setDarkMode(!isDarkMode)
     document.documentElement.classList.toggle('dark')
-    console.log(isDarkMode)
   }
 
   return(
