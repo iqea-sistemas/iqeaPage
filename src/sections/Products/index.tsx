@@ -2,8 +2,9 @@ import React from "react";
 import "./Products.scss";
 import ButtonStyle from "@/components/ButtonStyle";
 import { getCatProductos } from "@/services/fetchData";
-import SlideProducts from "@/components/SlideProducts/SlideProducts";
+// import SlideProducts from "@/components/SlideProducts/SlideProducts";
 import Link from "next/link";
+import dynamic from 'next/dynamic'
 
 const random_array = (arr: any) => {
   const copiaArray = arr.slice(); // Crear una copia del array para no modificar el original
@@ -15,6 +16,12 @@ const random_array = (arr: any) => {
   const primerosCincoObjetos = copiaArray.slice(0, 5);
   return primerosCincoObjetos;
 };
+
+const SlideProducts = dynamic(() => import('@/components/SlideProducts/SlideProducts'), {
+  loading: () => <p>Loading...</p>,
+})
+
+
 
 export default async function Products({ t }: any) {
   const data = await getCatProductos();
@@ -47,6 +54,7 @@ export default async function Products({ t }: any) {
         </div>
 
         <div className="productsGroup">
+
           <SlideProducts productData={productData} />
         </div>
         <ButtonStyle>

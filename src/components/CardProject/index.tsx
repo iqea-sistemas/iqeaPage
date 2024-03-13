@@ -10,9 +10,11 @@ export default function CardProjects({ leProject }: any) {
       <article className="CardProject">
         <div className="CardProjectImage">
           {leProject.cover && (
-            <img
+            <Image
               src={leProject.cover}
               alt={leProject.altText ? leProject.altText : "galeria"}
+              width={320}
+              height={240}
             />
           )}
         </div>
